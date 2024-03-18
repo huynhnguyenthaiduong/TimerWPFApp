@@ -1,0 +1,120 @@
+﻿<Window x:Class="TimerApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:local="clr-namespace:TimerApplication"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Title="TimerApp" Height="600" Width="900"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Border>
+        <Border.Background>
+            <!--<ImageBrush ImageSource="\Images\grey.png"
+                        Stretch="Fill"/>-->
+            <SolidColorBrush Color="#403F44"></SolidColorBrush>
+        </Border.Background>
+
+        <Grid HorizontalAlignment="Right" Width="900">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Title-->
+            <Border Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="820"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0">
+                        <TextBlock FontSize="13"
+                                   Foreground="White"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0">
+                            Clock app
+                        </TextBlock>
+                    </Border>
+
+                    <Border Grid.Column="1">
+                        <Button x:Name="btn_Minimize"
+                                Style="{StaticResource titleBarButton}"
+                                Tag="White" Click="btn_Minimize_Click">
+                            <fa:IconImage Icon="WindowMinimize"
+                                          Style="{StaticResource titleBarButtonIcon}"/>
+                        </Button>
+                    </Border>
+
+                    <Border Grid.Column="2">
+                        <Button x:Name="btn_Close"
+                                Style="{StaticResource titleBarButton}"
+                                Tag="White" Click="btn_Close_Click">
+                            <fa:IconImage Icon="Close"
+                                          Style="{StaticResource titleBarButtonIcon}"/>
+                        </Button>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="1">
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton x:Name="rdtn_Clock" Style="{StaticResource navButton}"
+                                     Tag="White" Checked="rdtn_Clock_Checked">
+                                <StackPanel Orientation="Vertical">
+                                    <fa:IconImage Icon="Clock" Style="{StaticResource navButtonIcon}"/>
+                                    <TextBlock Text="Clock" Style="{StaticResource navButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>
+
+                            <RadioButton x:Name="rdtn_Timer" Style="{StaticResource navButton}"
+                                     Tag="White" Checked="rdtn_Timer_Checked">
+                                <StackPanel Orientation="Vertical">
+                                    <fa:IconImage Icon="ClockRotateLeft" Style="{StaticResource navButtonIcon}"/>
+                                    <TextBlock Text="Timer" Style="{StaticResource navButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>
+
+                            <!--<RadioButton x:Name="rdtn_AlarmClock" Style="{StaticResource navButton}"
+                                     Tag="White" Checked="rdtn_AlarmClock_Checked">
+                                <StackPanel Orientation="Vertical">
+                                    <fa:IconImage Icon="Bell" Style="{StaticResource navButtonIcon}"/>
+                                    <TextBlock Text="Alarm Clock" Style="{StaticResource navButtonText}"/>
+                                </StackPanel>
+                            </RadioButton>-->
+
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2">
+                <Border.Background>
+                    <ImageBrush ImageSource="\Images\white.png"
+                                Stretch="Fill"/>
+                </Border.Background>
+
+                <ContentControl Name="ct_Content"
+                                Margin="20"/>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

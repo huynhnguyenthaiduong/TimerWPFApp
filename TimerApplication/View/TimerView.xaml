@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="TimerApplication.View.TimerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TimerApplication.View"
+             mc:Ignorable="d" 
+              d:DesignHeight="465" d:DesignWidth="860">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="265"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Label Content="Hour:" Foreground="Black" VerticalAlignment="Center"
+                           FontSize="16" Margin="0,0,20,0"/>
+                    <TextBox x:Name="txt_Hour" TextWrapping="Wrap" 
+                             Width="50" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Label Content="Minute:" Foreground="Black" VerticalAlignment="Center"
+                           FontSize="16" Margin="0,0,20,0"/>
+                <TextBox x:Name="txt_Minute" TextWrapping="Wrap" 
+                             Width="50" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="3">
+                    <Button x:Name="btn_SetTimer" Content="Sets Timer" Background="Cyan"
+                            Height="35" Width="80" Margin="20,0,0,0" Click="btn_SetTimer_Click"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <Label Content="Second:" Foreground="Black" VerticalAlignment="Center"
+                           FontSize="16" Margin="0,0,20,0"/>
+                <TextBox x:Name="txt_Second" TextWrapping="Wrap" 
+                             Width="50" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+                </StackPanel>
+            </Grid>
+
+
+        </Border>
+
+        <Border Grid.Row="1">
+            <Label x:Name="lbl_Clock"
+                   Content="01:00:00" 
+                   Height="240" Width="600" 
+                   VerticalContentAlignment="Center" 
+                   HorizontalContentAlignment="Center" 
+                   FontSize="120" Foreground="Black"/>
+        </Border>
+        <Border Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="430"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0">
+                    <Button x:Name="btn_StartStop" Content="Start" Background="LightGreen"
+                         Height="50" Width="120" Click="btn_StartStop_Click" Margin="200,0,0,0"/>
+                </Border>
+
+                <Border Grid.Column="1">
+                    <Button x:Name="btn_Reset" Content="Reset" Background="Yellow"
+                         Height="50" Width="120" Margin="0,0,200,0" Click="btn_Reset_Click"/>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
